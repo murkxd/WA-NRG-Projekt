@@ -8,6 +8,7 @@ import { Register } from './components/Register.jsx';
 import { Profile } from './components/Profile.jsx';
 import { AddPost } from './components/AddPost.jsx';
 import { Footer } from './components/Footer.jsx';
+import e46 from './img/330i.jpeg'
 
 function Home() {
     const [posts, setPosts] = useState([]);
@@ -45,6 +46,15 @@ function Home() {
                     dislikes={0}
                 />
             )}
+
+                <Post
+                    key="placeholder-static"
+                    username="John Doe"
+                    image={e46}
+                    description="Description of this cool post xd."
+                    likes={12}
+                    dislikes={5}
+                />
         </div>
     );
 }

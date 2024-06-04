@@ -216,7 +216,7 @@ app.get("/user-profile", authenticateToken, async (req, res) => {
   }
 });
 
-app.listen(5176, () => {
+app.listen(5177, () => {
   console.log("Server is running");
   console.log("server listening on port 5176");
 });
