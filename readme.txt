@@ -8,6 +8,7 @@ Postování příspěvků s fotkami
 React Vite 
 Node.js
 Bootstrap
+Prisma
 
 4. Jak nainstalovat a spustit
 npm i
