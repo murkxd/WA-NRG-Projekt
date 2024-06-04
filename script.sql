@@ -8,7 +8,7 @@ CREATE TABLE Image (
 );
 
 ALTER TABLE Image
-MODIFY COLUMN image BLOB NOT NULL;
+MODIFY COLUMN image TEXT NOT NULL;
 
 CREATE TABLE User (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -28,9 +28,6 @@ CREATE TABLE  Post (
     FOREIGN KEY (image_id) REFERENCES  Image(id)
 );
 
-ALTER TABLE Post 
-ADD COLUMN description TEXT;
-
 CREATE TABLE Comment (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
@@ -41,7 +38,6 @@ CREATE TABLE Comment (
 );
 
 select * from image;
-select * from post;
 
-DELETE FROM Post WHERE image_id = (image_id);
-DELETE FROM Image;
+delete from post;
+delete from image;
