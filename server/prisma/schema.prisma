@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Comment {
+  id      Int    @id @default(autoincrement())
+  user_id Int
+  post_id Int
+  content String @db.Text
+  User    User   @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "comment_ibfk_1")
+  Post    Post   @relation(fields: [post_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "comment_ibfk_2")
+
+  @@index([post_id], map: "post_id")
+  @@index([user_id], map: "user_id")
+}
+
+model Image {
+  id    Int    @id @default(autoincrement())
+  image String? @map("image_url")
+  Post  Post[]
+  User  User[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model Post {
+  id            Int       @id @default(autoincrement())
+  user_id       Int
+  image_id      Int
+  description String
+  like_count    Int
+  dislike_count Int
+  Comment       Comment[]
+  User          User      @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "post_ibfk_1")
+  Image         Image     @relation(fields: [image_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "post_ibfk_2")
+
+  @@index([image_id], map: "image_id")
+  @@index([user_id], map: "user_id")
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  username String    @unique(map: "username") @db.VarChar(50)
+  pass     String    @db.Text
+  pfp_id   Int?
+  Comment  Comment[]
+  Post     Post[]
+  Image    Image?    @relation(fields: [pfp_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_ibfk_1")
+
+  @@index([pfp_id], map: "pfp_id")
+}

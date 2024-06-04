@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    min-height: 100%; 
+    background: #51023f;
+    background: -webkit-linear-gradient(0deg, #51023f 0%, #8a09b4 100%);
+    background: linear-gradient(0deg, #51023f 0%, #8a09b4 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex: 1;
+}
+
+.post-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+}
