@@ -86,8 +86,8 @@ export function Post({ username, image, description, likes: initialLikes, dislik
       </div>
 
       <div className="post-image">
-        {/* <img src={`http://localhost:5176${image}`} alt="Post" onError={(e) => { e.target.src = 'https://placehold.co/600'; }} /> */}
-        <img src={image} alt="Post" onError={(e) => { e.target.src = 'https://placehold.co/600'; }} />
+      <img src={`${image}`} alt="Post" onError={(e) => { e.target.src = 'https://placehold.co/600'; }} />
+      {/* <img src={image} alt="Post" onError={(e) => { e.target.src = 'https://placehold.co/600'; }} /> */}
         </div>
 
       <div className="post-actions">
